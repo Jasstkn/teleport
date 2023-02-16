@@ -204,7 +204,7 @@ func (u *HostUserManagement) CreateUser(name string, ui *services.HostUsersInfo)
 	var errs []error
 	for _, group := range groups {
 		if err := u.createGroupIfNotExist(group); err != nil {
-			errs = append(errs, err)
+			errs = append(errs, trace.WrapWithMessage(err, "error while creating group: %s", group))
 			continue
 		}
 	}

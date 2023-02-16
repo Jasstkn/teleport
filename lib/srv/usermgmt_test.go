@@ -150,7 +150,7 @@ func TestUserMgmt_CreateTemporaryUser(t *testing.T) {
 	require.NoError(t, err)
 	require.NotNil(t, closer, "user closer was nil")
 
-	// temproary users must always include the teleport-service group
+	// temporary users must always include the teleport-service group
 	require.Equal(t, []string{
 		"hello", "sudo", types.TeleportServiceGroup,
 	}, backend.users["bob"])
